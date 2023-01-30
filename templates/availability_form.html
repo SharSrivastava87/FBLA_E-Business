@@ -5,7 +5,13 @@
     <title>Book a Room</title>
 </head>
 <body>
-    {{ form.as_p }}
+    <form action="" method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Book Room</button>
+    </form>
 
+<h2>Type in the checkin and checkout time in this format:(Actually type the T as well) Year-month-dateTHour:minute</h2>
 </body>
+
 </html>

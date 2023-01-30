@@ -5,7 +5,7 @@ from django.conf import settings
 # Create your models here.
 
 class Room(models.Model):
-    ROOM_Categories =(
+    ROOM_Categories = (
         ('STA', 'Standard'),
         ('DEL', 'Deluxe'),
         ('SUI', 'Suite'),
@@ -14,8 +14,10 @@ class Room(models.Model):
     category = models.CharField(max_length=3, choices=ROOM_Categories)
     beds = models.IntegerField()
     capacity = models.IntegerField()
+
     def __str__(self):
         return f'{self.number}. {self.category} with {self.beds} beds for {self.capacity} people'
+
 
 class Booking(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -25,5 +27,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return f'{self.user} has booked {self.room} from {self.check_in} to {self.check_out}'
-
-
