@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Homepage.apps.HomepageConfig',
     'Homepage.Booking_Functions',
+    'Homepage.static.imgs',
+    'Homepage.static.css',
+    'Homepage.static.js',
+
 
 ]
 
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'djangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'Homepage/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

@@ -9,10 +9,12 @@ from Homepage.Booking_Functions.availability import check_availability
 
 class RoomList(ListView):
     model = Room
+    template_name = 'room_list.html'
 
 
 class BookingList(ListView):
     model = Booking
+    template_name = 'index.html'
 
 
 class BookingView(FormView):
