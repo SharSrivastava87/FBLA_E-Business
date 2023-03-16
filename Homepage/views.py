@@ -3,6 +3,7 @@ from django.views.generic import ListView, FormView
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from Homepage.Booking_Functions.availability import check_availability
+from django.shortcuts import render
 
 
 # Create your views here.
@@ -16,6 +17,10 @@ class BookingList(ListView):
     model = Booking
     template_name = "MapAPI.html"
 
+
+
+def my_view(request):
+    return render(request, 'index1.html')
 
 class BookingView(FormView):
     form_class = AvailabilityForm
