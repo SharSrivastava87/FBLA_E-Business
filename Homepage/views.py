@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse
 from django.views.generic import ListView, FormView
 from .models import Room, Booking
-from .forms import AvailabilityForm
+from .forms import AvailabilityForm, DateInput
 from Homepage.Booking_Functions.availability import check_availability
 from django.shortcuts import render
 
