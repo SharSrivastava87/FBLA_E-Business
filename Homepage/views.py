@@ -9,10 +9,12 @@ from Homepage.Booking_Functions.availability import check_availability
 
 class RoomList(ListView):
     model = Room
+    template_name = "index.html"
 
 
 class BookingList(ListView):
     model = Booking
+    template_name = "MapAPI.html"
 
 
 class BookingView(FormView):
@@ -28,7 +30,6 @@ class BookingView(FormView):
                 available_rooms.append(room)
                 if len(available_rooms) > 0:
                     room = available_rooms[0]
-                    from django.http import request
                     booking = Booking.objects.create(
                         user=self.request.user,
                         room=room,
