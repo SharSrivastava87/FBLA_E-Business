@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 # Create your views here.
 def register(response):
     if response.method == "POST":
@@ -10,18 +12,16 @@ def register(response):
     else:
         form = RegisterForm()
     return render(response, "register.html", {"form":form})
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
+
+
 
 def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('') # replace 'home' with the URL of your app's home page
-        else:
-            messages.error(request, 'Invalid username or password.')
-    return render(request, 'login.html')
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            # log in the user
+            return redirect('Homepage:RoomList')
+
+    else:
+        form = AuthenticationForm()
+    return render(request, 'LoginPage.html', {'form':form})
