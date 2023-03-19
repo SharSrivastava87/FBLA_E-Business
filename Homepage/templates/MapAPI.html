@@ -14,12 +14,12 @@
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon"><i class="fa fa-hotel"></i></span><span>Srivastava Inn &amp; Suites</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Login/Signup</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login/Signup</a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="Pricing">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="NearbyAttractions">Nearby-Attractions</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="book">Book now</a>
+                    <li class="nav-item"><a class="nav-link" href="/Pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/NearbyAttractions">Nearby-Attractions</a></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
             </div>
         </div>
     </nav>
@@ -56,4 +56,21 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMH7JOg3aPrpWCvw-orzp_n8XemiXf3lI&callback=initMap"
     async defer></script>
   </body>
+<div id="map"></div>
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 29.749907, lng: -95.358421},
+      zoom: 14
+    });
+
+    var hotelMarker = new google.maps.Marker({
+      position: {lat: 29.749907, lng: -95.358421},
+      map: map,
+      label: 'Srivastava Inn & Suites'
+    });
+  }
+</script>
+
 </html>
