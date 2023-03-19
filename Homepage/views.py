@@ -4,6 +4,8 @@ from .models import Room, Booking
 from .forms import AvailabilityForm, DateInput
 from Homepage.Booking_Functions.availability import check_availability
 from django.shortcuts import render
+from django.core.mail import send_mail
+
 
 
 # Create your views here.

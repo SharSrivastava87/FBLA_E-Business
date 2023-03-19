@@ -11,6 +11,6 @@ class AvailabilityForm(forms.Form):
     )
 
     room_category = forms.ChoiceField(choices= ROOM_Categories, required=True)
-    check_in = forms.DateField(widget=DateInput)
-    check_out = forms.DateField(widget=DateInput)
+    check_in = forms.DateField(widget=DateInput, required=True)
+    check_out = forms.DateField(widget=DateInput, required=True)
 
