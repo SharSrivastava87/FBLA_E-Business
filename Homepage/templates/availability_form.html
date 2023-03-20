@@ -68,6 +68,14 @@
 <body>
     <form action="" method="POST">
         {{ form.as_p }}
+        <label for="card_number">Credit/Debit Card Number:</label>
+        <input type="text" id="card_number" name="card_number" required>
+
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
         {% csrf_token %}
         <button type="submit">Book Room</button>
     </form>

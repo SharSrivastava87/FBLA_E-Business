@@ -10,7 +10,9 @@ class AvailabilityForm(forms.Form):
         ('SUI', 'Suite'),
     )
 
-    room_category = forms.ChoiceField(choices= ROOM_Categories, required=True)
-    check_in = forms.DateTimeField(widget=DateInput, required=True)
-    check_out = forms.DateTimeField(widget=DateInput, required=True)
+    room_category = forms.ChoiceField(choices=ROOM_Categories, required=True)
+    check_in = forms.DateField(widget=DateInput, required=True)
+    check_out = forms.DateField(widget=DateInput, required=True)
+    num_rooms = forms.IntegerField(required=True, min_value=1)
+
 
