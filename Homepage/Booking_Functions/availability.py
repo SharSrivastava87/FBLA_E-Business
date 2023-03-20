@@ -1,4 +1,3 @@
-import datetime
 from Homepage.models import Room, Booking
 
 
