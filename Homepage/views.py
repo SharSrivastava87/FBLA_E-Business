@@ -24,6 +24,8 @@ class BookingList(ListView):
 def my_view(request):
     return render(request, 'index1.html')
 
+def terms(request):
+    return render(request, 'Terms&policy.html')
 
 class BookingView(FormView):
     form_class = AvailabilityForm

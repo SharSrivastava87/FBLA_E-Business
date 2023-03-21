@@ -10,5 +10,6 @@ urlpatterns=[
     path('book/', BookingView.as_view(), name='booking_view'),
     path('Pricing/', views.my_view),
     path('login/', login_view, name='login'),
+    path('Terms&Conditions/', views.terms),
 
 ]

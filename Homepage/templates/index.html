@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -21,7 +21,31 @@
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="Pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link"F href="NearbyAttractions">Nearby-Attractions</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="book">Book now</a>
+                </ul>
+                <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
+                    <a class="btn btn-primary shadow" role="button" href="book">Book now</a>
+                </div>
+                    {% if user.is_authenticated %}
+                      <div class="d-flex flex-column align-items-center">
+                        <div class="user-image-container d-flex justify-content-center">
+                          <img src="{% static 'imgs/user.png' %}" alt="User Image" style="height: 50px; width: 65px;padding-left: 15px">
+                        </div>
+                        <div class="user-info d-flex flex-column align-items-center">
+                          <p class="mt-2" style="padding-left: 20%">{{ user.username }}</p>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="d-flex justify-content-center ml-auto">
+                          <div class="user-info d-flex flex-column align-items-center">
+                            <div class="user-image-container d-flex justify-content-center" style="margin-bottom: 10px">
+                              <img src="{% static 'imgs/user.png' %}" alt="User Image" style="height: 50px; width: 50px;">
+                            </div>
+                            <a href="/login">Login</a>
+                          </div>
+                      </div>
+
+                    {% endif %}
+
             </div>
         </div>
     </nav>
