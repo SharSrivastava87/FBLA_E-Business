@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load admin_urls %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -17,7 +18,13 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login">Login/Signup</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'Homepage:1234' %}>Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="Login/Signup">Login</a></li>
+                    {% endif %}
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="Pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link"F href="NearbyAttractions">Nearby-Attractions</a></li>

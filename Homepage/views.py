@@ -1,10 +1,12 @@
-from django.shortcuts import HttpResponse
+from django.contrib.auth import logout
+from django.shortcuts import HttpResponse, redirect
+from django.template.context_processors import request
 from django.views.generic import ListView, FormView
 from .models import Room, Booking
 from .forms import AvailabilityForm, DateInput
 from Homepage.Booking_Functions.availability import check_availability
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.contrib import messages
 
 
 
@@ -53,3 +55,9 @@ class BookingView(FormView):
             return HttpResponse(f'{data["num_rooms"]} room(s) booked successfully!')
         else:
             return HttpResponse('Requested number of rooms are not available!')
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request,  "You have succesfully logged out ")
+    return redirect('/')

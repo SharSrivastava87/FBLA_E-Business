@@ -11,5 +11,5 @@ urlpatterns=[
     path('Pricing/', views.my_view),
     path('login/', login_view, name='login'),
     path('Terms&Conditions/', views.terms),
-
+    path('logout_user', views.logout_view, name='1234'),
 ]
