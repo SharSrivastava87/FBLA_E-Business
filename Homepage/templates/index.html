@@ -29,9 +29,15 @@
                     <li class="nav-item"><a class="nav-link" href="/Pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link"F href="/NearbyAttractions">Nearby-Attractions</a></li>
                 </ul>
-                <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
-                    <a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
-                </div>
+                {% if user.is_authenticated %}
+                    <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
+                        <a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
+                    </div>
+                {% else %}
+                    <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
+                        <a class="btn btn-primary shadow" role="button" href="/login">Book now</a>
+                    </div>
+                {% endif %}
                     {% if user.is_authenticated %}
                       <div class="d-flex flex-column align-items-center">
                         <div class="user-image-container d-flex justify-content-center">

@@ -18,7 +18,7 @@
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon"><i class="fa fa-hotel"></i></span><span>Srivastava Inn &amp; Suites</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href={% url 'Homepage:1234' %}>Logout</a>
@@ -30,9 +30,15 @@
                     <li class="nav-item"><a class="nav-link" href="/Pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link"F href="/NearbyAttractions">Nearby-Attractions</a></li>
                 </ul>
-                <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
-                    <a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
-                </div>
+                {% if user.is_authenticated %}
+                    <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
+                        <a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
+                    </div>
+                {% else %}
+                    <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
+                        <a class="btn btn-primary shadow" role="button" href="/login">Book now</a>
+                    </div>
+                {% endif %}
                     {% if user.is_authenticated %}
                       <div class="d-flex flex-column align-items-center">
                         <div class="user-image-container d-flex justify-content-center">
