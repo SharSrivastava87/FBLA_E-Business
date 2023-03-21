@@ -1,3 +1,5 @@
+{% load static %}
+{% load admin_urls %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -13,12 +15,42 @@
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon"><i class="fa fa-hotel"></i></span><span>Srivastava Inn &amp; Suites</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login/Signup</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="">Home</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'Homepage:1234' %}>Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    {% endif %}
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="/Pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link"F href="/NearbyAttractions">Nearby-Attractions</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
+                </ul>
+                <div class="book-now-container d-flex justify-content-center" style="padding-right: 40px">
+                    <a class="btn btn-primary shadow" role="button" href="/book">Book now</a>
+                </div>
+                    {% if user.is_authenticated %}
+                      <div class="d-flex flex-column align-items-center">
+                        <div class="user-image-container d-flex justify-content-center">
+                          <img src="{% static 'imgs/user.png' %}" alt="User Image" style="height: 50px; width: 65px;padding-left: 15px">
+                        </div>
+                        <div class="user-info d-flex flex-column align-items-center">
+                          <p class="mt-2" style="padding-left: 20%">{{ user.username }}</p>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="d-flex justify-content-center ml-auto">
+                          <div class="user-info d-flex flex-column align-items-center">
+                            <div class="user-image-container d-flex justify-content-center" style="margin-bottom: 10px">
+                              <img src="{% static 'imgs/user.png' %}" alt="User Image" style="height: 50px; width: 50px;">
+                            </div>
+                            <a href="/login">Login</a>
+                          </div>
+                      </div>
+
+                    {% endif %}
+
             </div>
         </div>
     </nav>
