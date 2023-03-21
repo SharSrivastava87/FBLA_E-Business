@@ -9,7 +9,6 @@ from django.shortcuts import render
 from django.contrib import messages
 
 
-
 # Create your views here.
 
 class RoomList(ListView):
@@ -61,3 +60,11 @@ def logout_view(request):
     logout(request)
     messages.success(request,  "You have succesfully logged out ")
     return redirect('/')
+def checkout_view(request):
+    return render(request, 'Checkout.html')
+
+
+from django.http import JsonResponse
+
+
+

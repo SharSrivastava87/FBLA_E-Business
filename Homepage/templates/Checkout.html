@@ -61,63 +61,15 @@
             </div>
         </div>
     </nav>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Book a Room</title>
-    <style>
-    body {
-        background-color: #1E1E1E;
-        color: #FFFFFF;
-    }
 
-    form {
-        background-color: #2F2F2F;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 50px auto;
-        width: 50%;
-    }
-
-    input[type="text"], input[type="email"], textarea {
-        background-color: #3D3D3D;
-        color: #FFFFFF;
-        border: none;
-        padding: 10px;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-
-    button[type="submit"] {
-        background-color: #007ACC;
-        color: #FFFFFF;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-        background-color: #0066CC;
-    }
-</style>
-
-</head>
-<body>
-
-    <form method="post" class="form" id="availability-form">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <h4>-----------------------------------------------------</h4>
-        <h4 style="padding-bottom: 3%">Your total is:  </h4>
-        <html lang="en">
+    <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>PayPal Standard Payments Integration | Client Demo</title>
       </head>
 
-      <body class="text-center" style="align-items: center; padding-top: 5%">
+      <body class="text-center" style="align-items: center">
         <div id="paypal-button-container"></div>
         <!-- Sample PayPal credentials (client-id) are included -->
         <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
@@ -172,14 +124,3 @@
         </script>
       </body>
     </html>
-
-        <button type="submit">Book Room</button>
-
-    </form>
-
-
-
-
-</body>
-
-</html>

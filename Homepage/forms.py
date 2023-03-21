@@ -14,5 +14,6 @@ class AvailabilityForm(forms.Form):
     check_in = forms.DateTimeField(widget=DateInput, required=True)
     check_out = forms.DateTimeField(widget=DateInput, required=True)
     num_rooms = forms.IntegerField(required=True, min_value=1)
+    price = 0
 
 
