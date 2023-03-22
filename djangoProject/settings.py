@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-otj)w_fh!t*sb&gu3kz1i&1(^hu17j98&_cslh5+yp#2!b_od%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -129,3 +129,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+X_FRAME_OPTIONS = 'SAMEORIGIN'

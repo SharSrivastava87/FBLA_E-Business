@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+
+
 {% load static %}
 {% load admin_urls %}
 <head>
@@ -61,6 +64,13 @@
             </div>
         </div>
     </nav>
+            <div>
+                {% for booking in bookings %}
+                <p>{{booking.room.price}}</p>
+                {% endfor %}
+                <p>{{ total_cost }}</p>
+            </div>
+
 
     <html lang="en">
       <head>
@@ -72,7 +82,8 @@
       <body class="text-center" style="align-items: center">
         <div id="paypal-button-container"></div>
         <!-- Sample PayPal credentials (client-id) are included -->
-        <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
+        <script
+                src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
         <script>
           const paypalButtonsComponent = paypal.Buttons({
               // optional styling for buttons
@@ -91,7 +102,7 @@
                       purchase_units: [
                           {
                               amount: {
-                                  value: "88.44"
+                                  value: '{{ total_cost|floatformat:2 }}'
                               }
                           }
                       ]
@@ -104,7 +115,7 @@
               onApprove: (data, actions) => {
                   const captureOrderHandler = (details) => {
                       const payerName = details.payer.name.given_name;
-                      console.log('Transaction completed');
+                      window.location.href = '/';
                   };
 
                   return actions.order.capture().then(captureOrderHandler);
