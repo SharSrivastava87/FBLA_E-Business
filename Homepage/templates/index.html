@@ -57,6 +57,58 @@
             </div>
         </div>
     </nav>
+{% if messages %}
+  <div id="message-box">
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+<style>
+  /* remove the dot indicator and center the message */
+  .messages li:before {
+    display: none;
+  }
+  #message-box {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .messages {
+    display: inline-block;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .error {
+    color: red;
+  }
+  .success {
+    color: green;
+  }
+  .info {
+    color: blue;
+  }
+  .warning {
+    color: orange;
+  }
+</style>
+
+<script>
+  /* remove the message after a few seconds */
+  setTimeout(function() {
+    var messages = document.querySelector('#message-box .messages');
+    messages.parentNode.removeChild(messages);
+  }, 5000); // 5000 milliseconds = 5 seconds
+</script>
+
+
+
+
+
     <header class="bg-dark">
         <div class="container pt-4 pt-xl-5">
             <div class="row pt-5">

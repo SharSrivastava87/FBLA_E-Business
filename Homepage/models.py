@@ -30,6 +30,8 @@ class Booking(models.Model):
 
 
 
+
     # Return a string representation of the Booking object
     def __str__(self):
         return f'{self.user} has booked {self.room} from {self.check_in} to {self.check_out}'
+

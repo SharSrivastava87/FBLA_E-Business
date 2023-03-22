@@ -2,13 +2,13 @@
 from django.contrib.auth import logout
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, FormView
-
+from datetime import timedelta
 # Import check_availability function from a module
 from Homepage.Booking_Functions.availability import check_availability
 from .forms import AvailabilityForm
 # Import models and forms from this app
 from .models import Room, Booking
-
+from django.utils import timezone
 
 # Import messages for use in logout_view
 from django.contrib import messages
@@ -87,9 +87,17 @@ def checkout_view(request):
     total = 0
     for booking in bookings:
         total += booking.room.price
+
+
     total *= 1.08
     total = round(total, ndigits=2)
     booked_complete = request.user.bookings.filter().update(completed=True)
+
+
+
+
+    messages.success(request, 'Form submitted successfully!')
     return render(request, 'Checkout.html', {"bookings": bookings, "total_cost": total})
+
 
 
