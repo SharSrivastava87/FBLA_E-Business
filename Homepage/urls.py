@@ -25,4 +25,6 @@ urlpatterns=[
     path('logout_user', views.logout_view, name='1234'),
     # Define the URL pattern for the checkout_view view
     path('checkout/', views.checkout_view),
+
+    path('Booked_Out/', views.boookedout)
 ]

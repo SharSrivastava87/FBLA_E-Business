@@ -1,16 +1,17 @@
 # Import necessary modules from Django
 from django.contrib.auth import logout
-from django.shortcuts import HttpResponse, redirect, render
+from django.shortcuts import redirect, render
 from django.views.generic import ListView, FormView
-# Import models and forms from this app
-from .models import Room, Booking
-from .forms import AvailabilityForm, DateInput
+
 # Import check_availability function from a module
 from Homepage.Booking_Functions.availability import check_availability
+from .forms import AvailabilityForm
+# Import models and forms from this app
+from .models import Room, Booking
+
+
 # Import messages for use in logout_view
 from django.contrib import messages
-
-
 # Define views
 # Display a list of all available rooms
 class RoomList(ListView):
@@ -33,7 +34,8 @@ def my_view(request):
 def terms(request):
     return render(request, 'Terms&policy.html')
 
-
+def boookedout(request):
+    return render(request, 'booked_out.html')
 # Allow user to book a room if available
 from django.contrib import messages
 
@@ -66,11 +68,11 @@ class BookingView(FormView):
                 booking.save()
                 return redirect('/checkout')
 
+
         else:
-            # If we didn't find enough available rooms, return an error message
-            return HttpResponse('Requested number of rooms are not available!')
 
 
+            return redirect('/Booked_Out')
 
 
 # Allow user to log out and display a success message
@@ -86,6 +88,7 @@ def checkout_view(request):
     for booking in bookings:
         total += booking.room.price
     total *= 1.08
+    total = round(total, ndigits=2)
     booked_complete = request.user.bookings.filter().update(completed=True)
     return render(request, 'Checkout.html', {"bookings": bookings, "total_cost": total})
 

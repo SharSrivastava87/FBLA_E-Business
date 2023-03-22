@@ -1,8 +1,6 @@
+<!DOCTYPE html>
 {% load static %}
 {% load admin_urls %}
-
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -18,7 +16,7 @@
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><img src="{% static 'imgs/S (2).png' %}" width="110"  height="100" style="padding-right: 10px"><span>Srivastava Inn &amp; Suites</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto" style="padding-right: 15%">
-                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="">Home</a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="/Pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link"F href="/NearbyAttractions">Nearby-Attractions</a></li>
@@ -58,98 +56,13 @@
             </div>
         </div>
     </nav>
-
-
-
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-
-
-
-
-
-
-
-{% block content %}
-    <p>Sorry, we could not find enough available rooms for your selected dates.</p>
-<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-  <div class="col-lg-6">
-    <div class="card border-0 shadow-lg">
-      <div class="card-body p-5">
-        <h2 class="card-title mb-4 text-center">Login</h2>
-        <form class="site-form" action="/login/" method="post">
-          {% csrf_token %}
-          <div class="form-group text-center mb-4">
-            <label for="username">Username:</label>
-            <div class="input-group justify-content-center">
-
-              {{ form.username }}
-            </div>
-          </div>
-          <div class="form-group text-center mb-4">
-            <label for="password">Password:</label>
-            <div class="input-group justify-content-center">
-
-              {{ form.password }}
-            </div>
-          </div>
-          <div class="form-group text-center mb-4">
-            <button type="submit" class="btn btn-success">Login</button>
-          </div>
-        </form>
-        <div class="text-center">
-          <p class="mb-0">Don't have an account?</p>
-          <a href="/register/" class="btn btn-link btn-sm">Create an account</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<style>
-    body {
-        background-color: #1E1E1E;
-        color: #FFFFFF;
-    }
-
-    .card {
-        position: relative;
-        top: -30px;
-    }
-
-    .fa-user-circle:before {
-        content: "\f2bd";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        font-size: 20px;
-        color: #a7a7a7;
-    }
-
-    .fa-key:before {
-        content: "\f084";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        font-size: 20px;
-        color: #a7a7a7;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-</style>
-    <script>
-    setTimeout(function (){
-        if ($('#msg').length > 0){
-            $('#msg').remove();
-        }
-    }, 3000)
-{% endblock %}
-
-
-
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title class="text-center", style="padding-left: 4%">Sorry, we could not find enough available rooms</title>
+</head>
+<body>
+    <h1 class="text-center", style="padding-left: 2%">Sorry, we could not find enough available rooms for your selected dates.</h1>
+    <p><a class="text-center", style="padding-left: 40%" href="/book/" >Click here</a> to return to the booking page.</p>
+</body>
+</html>
