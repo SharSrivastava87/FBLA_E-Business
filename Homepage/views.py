@@ -59,7 +59,9 @@ class BookingView(FormView):
                     user=self.request.user,
                     room=room,
                     check_in=data['check_in'],
-                    check_out=data['check_out']
+                    check_out=data['check_out'],
+                    points = 100
+
                 )
                 booking.save()
                 return redirect('/checkout')
@@ -84,5 +86,7 @@ def checkout_view(request):
     for booking in bookings:
         total += booking.room.price
     total *= 1.08
-    print(type(total))
+    booked_complete = request.user.bookings.filter().update(completed=True)
     return render(request, 'Checkout.html', {"bookings": bookings, "total_cost": total})
+
+

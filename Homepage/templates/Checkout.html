@@ -108,6 +108,7 @@
                   const captureOrderHandler = (details) => {
                       const payerName = details.payer.name.given_name;
                       window.location.href = '/';
+
                   };
 
                   return actions.order.capture().then(captureOrderHandler);

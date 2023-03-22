@@ -26,6 +26,7 @@ class Booking(models.Model):
     check_in = models.DateTimeField()
     check_out = models.DateTimeField()
     completed = models.BooleanField(default=False)
+    points = models.IntegerField(default=0)
 
 
 
