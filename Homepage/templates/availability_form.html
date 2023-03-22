@@ -122,9 +122,10 @@
 <body>
 
     <form method="post" class="form" id="availability-form">
-        {{ form.as_p }}
+        <h5 class="text-center" style="font-size: 20px"> {{ form.as_p }}</h5>
         {% csrf_token %}
-        <button type="submit">Book Room</button>
+        <button type="submit" style="display: block; margin: auto;">Book Room</button>
+
 
     </form>
 

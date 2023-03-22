@@ -64,11 +64,12 @@
             </div>
         </div>
     </nav>
-            <div>
+            <div class="text-center">
                 {% for booking in bookings %}
-                <p>{{booking.room.price}}</p>
+                <h4>{{ booking.room }} price: ${{booking.room.price}}</h4>
                 {% endfor %}
-                <p>{{ total_cost }}</p>
+                <h4>----------------------------------</h4>
+                <h4 style="padding-bottom: 3%">total cost: ${{ total_cost }}</h4>
             </div>
 
 
