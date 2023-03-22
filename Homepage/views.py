@@ -86,7 +86,7 @@ def checkout_view(request):
     bookings = request.user.bookings.filter(completed=False)
     total = 0
     for booking in bookings:
-        total += booking.room.price
+        total += booking.room.price * (booking.check_out.date() - booking.check_in.date()).days
 
 
     total *= 1.08
