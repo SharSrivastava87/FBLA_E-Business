@@ -61,13 +61,7 @@
 
 
 
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+
 
 
 
@@ -77,7 +71,6 @@
 
 
 {% block content %}
-    <p>Sorry, we could not find enough available rooms for your selected dates.</p>
 <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
   <div class="col-lg-6">
     <div class="card border-0 shadow-lg">
