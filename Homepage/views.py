@@ -74,7 +74,6 @@ class BookingView(FormView):
 # Allow user to log out and display a success message
 def logout_view(request):
     logout(request)
-    messages.success(request, "You have succesfully logged out ")
     return redirect('/')
 
 
